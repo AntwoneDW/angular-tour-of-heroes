@@ -11,16 +11,20 @@ export class HeroesComponent implements OnInit {
   heroes = HEROES;
 
   //hero:String = 'Windstorm';
-  hero: Hero =
-  {
+  hero: Hero;
+/*  {
     id: 1,
     name: 'Windstorm'
-  };
+  };*/
 
   constructor() { }
 
   ngOnInit(): void {
     console.log("Hello Antwone from hero: ", this.hero);
+  }
+
+  onSelect( selectedHero: Hero) {
+    this.hero = selectedHero;
   }
 
 }

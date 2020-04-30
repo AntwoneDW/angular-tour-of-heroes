@@ -1,14 +1,21 @@
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span> {{hero.id}}</div>
-<div><span>name: </span> {{hero.name}}</div>
+<div *ngIf='hero'>
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span> {{hero.id}}</div>
+  <div><span>name: </span> {{hero.name}}</div>
 
-<div>
+  <div >
   <label>name:
     <input [(ngModel)]='hero.name' placeholder='name'/>
+    <label>
+      ID: {{hero.id}}
+    </label>
+    <pre>{{hero | json}}</pre>
   </label>
-
-  <h2>Heroes List</h2>
-  <ul>
-    <li *ngFor="let x of heroes">{{x.name}}</li>
-  </ul>
+  </div>
 </div>
+
+<h2>Heroes List</h2>
+<ul>
+  <li *ngFor='let x of heroes' (click)='onSelect(x)'
+  [class.hero]='x === hero'>{{x.name}} </li>
+</ul>
