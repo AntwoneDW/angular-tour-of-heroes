@@ -1,4 +1,4 @@
-<div *ngIf='hero'>
+<!-- <div *ngIf='hero'>
   <h2>{{hero.name | uppercase}} Details</h2>
   <div><span>id: </span> {{hero.id}}</div>
   <div><span>name: </span> {{hero.name}}</div>
@@ -12,7 +12,8 @@
     <pre>{{hero | json}}</pre>
   </label>
   </div>
-</div>
+</div> -->
+<app-hero-detail [hero]="hero"></app-hero-detail>
 
 <h2>Heroes List</h2>
 <ul>
