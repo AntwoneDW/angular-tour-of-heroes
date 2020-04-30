@@ -1,0 +1,12 @@
+<button (click)="messageService.add('hello bitch - ')"
+(mouseenter)="logserviceService.logThis('thinking about adding bitch')">Hello Bitch</button>
+<button (click)="messageService.clear()"
+        (mouseenter)="logserviceService.logThis('thinking about clearing bitch')">Clear Bitch</button>
+<div *ngIf="messageService.messages.length else elseBlock">
+  <!-- Content goes here -->
+  {{messageService.messages.toString()}}
+</div>
+
+<ng-template #elseBlock>
+  We have no message
+</ng-template>

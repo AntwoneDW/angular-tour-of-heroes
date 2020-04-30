@@ -17,6 +17,7 @@
 
 <h2>Heroes List</h2>
 <ul>
-  <li *ngFor='let x of heroes' (click)='onSelect(x)'
+  <li
+    *ngFor='let x of heroes' (click)='onSelect(x)'
   [class.hero]='x === hero'>{{x.name}} </li>
 </ul>

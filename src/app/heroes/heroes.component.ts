@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from '../hero';
 import {HeroService} from '../hero.service';
+import {MessageService} from "../message.service";
+import {LogserviceService} from "../logservice.service";
 
 @Component({
   selector: 'app-heroes',
@@ -9,6 +11,7 @@ import {HeroService} from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
+  messages: string[];
 
   // hero:String = 'Windstorm';
   hero: Hero;
@@ -17,21 +20,29 @@ export class HeroesComponent implements OnInit {
     name: 'Windstorm'
   };*/
 
-  constructor(private heroService: HeroService) {
+  constructor(private heroService: HeroService,
+              private messageService:MessageService,
+              private logserviceService: LogserviceService) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): void {
     console.log('Hello Antwone from hero ngInit()');
     //this.heroes = this.heroService.getHeroes();
-    this.heroService.getHeroesObservable().subscribe(
+    /*this.heroService.getHeroesObservable().subscribe(
       (heroesReturnObj) => this.heroes = heroesReturnObj
-    );
+    );*/
+    this.heroes = await this.heroService.getHeroesObservable().toPromise();
+    //this.messages =  await this.heroService.get.toPromise();
+    //this.heroService.getHeroesObservable().sub
   }
 
 
 
   onSelect( selectedHero: Hero) {
     this.hero = selectedHero;
+    const msg: string = "Clicked: " + selectedHero.name;
+    this.messageService.add( msg );
+    this.logserviceService.logThis( msg );
   }
 
 }
