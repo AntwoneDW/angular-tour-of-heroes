@@ -22,7 +22,10 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('Hello Antwone from hero ngInit()');
-    this.heroes = this.heroService.getHeroes();
+    //this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroesObservable().subscribe(
+      (heroesReturnObj) => this.heroes = heroesReturnObj
+    );
   }
 
 
