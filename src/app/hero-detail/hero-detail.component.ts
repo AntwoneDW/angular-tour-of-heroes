@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Hero} from "../hero";
 
 @Component({
@@ -9,10 +9,18 @@ import {Hero} from "../hero";
 export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero;
+  @Output() heroEvent = new EventEmitter<string>();
 
   constructor() { }
 
+  heroHoverEventHandler(evt)
+  {
+    this.heroEvent.emit("----EVENT EMITTIED----");
+    //console.log(evt);
+  }
+
   ngOnInit(): void {
+
   }
 
 }

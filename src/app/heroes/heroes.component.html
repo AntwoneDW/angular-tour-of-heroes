@@ -13,11 +13,16 @@
   </label>
   </div>
 </div> -->
-<app-hero-detail [hero]="hero"></app-hero-detail>
+
+<app-hero-detail [hero]="hero"
+(heroEvent)="heroEventHandler($event)"></app-hero-detail>
 
 <h2>Heroes List</h2>
 <ul>
   <li
     *ngFor='let x of heroes' (click)='onSelect(x)'
-  [class.hero]='x === hero'>{{x.name}} </li>
+  [class.hero]='x === hero'>{{x.name}}
+  </li>
 </ul>
+
+<app-messages></app-messages>
