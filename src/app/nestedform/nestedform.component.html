@@ -1,0 +1,17 @@
+<form formGroup="myForm">
+  Nested~<BR><BR>
+    Value: {{ myForm.value | json }}
+
+    <br>
+    <br>
+    <input type='text' formControlName='email'>
+    <input type='text' formControlName='homePhone'>
+    <input type='text' formControlName='cellPhone'>
+    <h4>Cell Phone</h4>
+    <div formGroupName="cellPhone">
+      <input type='text' formControlName='area'>
+      <input type='text' formControlName='prefix'>
+      <input type='text' formControlName='line'>
+    </div>
+    <button (click)='addCell'>Add</button>
+  </form>

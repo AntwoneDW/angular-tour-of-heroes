@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HeroesComponent} from "./heroes/heroes.component";
 import {NotheroesComponent} from "./notheroes/notheroes.component";
+import {NestedformComponent} from "./nestedform/nestedform.component";
 
 const routes: Routes = [
   { path: '', component: HeroesComponent},
-  { path: 'notheroes', component: NotheroesComponent}
+  { path: 'notheroes', component: NotheroesComponent},
+  { path: 'nested', component: NestedformComponent}
 ];
 
-const componentsForRoutes = [HeroesComponent, NotheroesComponent];
+const componentsForRoutes = [HeroesComponent, NotheroesComponent, NestedformComponent];
 
 
 @NgModule({

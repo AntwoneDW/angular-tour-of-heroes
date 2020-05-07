@@ -30,13 +30,13 @@ export class HeroesComponent implements OnInit {
               private logserviceService: LogserviceService) {
   }
 
-  async ngOnInit(): void {
+  ngOnInit(): void {
     console.log('Hello Antwone from hero ngInit()');
     // this.heroes = this.heroService.getHeroes();
-    /*this.heroService.getHeroesObservable().subscribe(
+    this.heroService.getHeroesObservable().subscribe(
       (heroesReturnObj) => this.heroes = heroesReturnObj
-    );*/
-    this.heroes = await this.heroService.getHeroesObservable().toPromise();
+    );
+    //this.heroes = await this.heroService.getHeroesObservable().toPromise();
     // this.messages =  await this.heroService.get.toPromise();
     // this.heroService.getHeroesObservable().sub
   }
